@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .menu > ul {
+        display: flex;
+        gap: 20px;
+        list-style: none;
+      }
+      .menu > ul > li {
+        position: relative;
+      }
+      .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        border: 1px solid #ccc;
+        list-style: none;
+        padding: 5px 10px;
+        margin: 0;
+        min-width: 150px;
+        background-color: black;
+        color: white;
+      }
+      .menu > ul > li:hover .submenu {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <header>HEADER</header>
+      <nav class="menu">
+        <ul>
+          <li><a href="#">Google</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li>
+            IAS
+            <ul class="submenu">
+              <li><a href="https://chatgpt.com/">ChatGPT</a></li>
+              <li><a href="https://gemini.google.com/">Gemini</a></li>
+              <li><a href="https://claude.ai/">Claude</a></li>
+            </ul>
+          </li>
+          <li>w3c School</li>
+        </ul>
+      </nav>
+      <article>ARTICLE</article>
+      <aside>ASIDE</aside>
+      <footer>FOOTER</footer>
+    </div>
+  </body>
+</html>

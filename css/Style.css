@@ -1,0 +1,548 @@
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-VariableFont_opsz,wght.ttf") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* VARIABLES */
+/* Esto es lo que definí en el documento entregable */
+:root {
+  /* Colores*/
+  --fondo-principal: #000000;
+  --fondo-secundario: #2d2d30;
+  --fondo-tarjeta: #1c1b1b;
+  --rosado: #c46e88;
+  --rosado-hover: #dd7ebd;
+  --rosado-glow: #f58cc1;
+  --rosado-borde: rgba(235, 25, 130, 0.25);
+  --texto: #ffffff;
+  --texto-suave: #b1b1b1;
+
+  /* Fuentes */
+  --fuente-titulo: "Inter", sans-serif;
+  --fuente-cuerpo: "Manrope", sans-serif;
+
+  /* Espaciados del taller */
+  --padding-tarjeta: 24px;
+  --gap-columnas: 32px;
+  --margen-componente: 24px;
+  --espacio-seccion: 80px;
+  --radius-btn: 10px;
+
+  /* Transición reutilizable */
+  --transicion: 0.25s ease;
+}
+
+/* GENERAL  ========================================================*/
+body {
+  font-family: var(--fuente-cuerpo);
+  font-size: 16px; /* definido en el taller para texto*/
+  color: var(--texto);
+  background-color: var(--fondo-principal);
+  background-image: url(https://i.pinimg.com/1200x/05/73/4c/05734c440d6acfc8573f1013b2cd093e.jpg);
+  backdrop-filter: blur(8px);
+  background-size: cover; /*para que ocupe toda la pantalla*/
+  height: 100vh; /*vh es el 100% de la altura de la pantalla*/
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none; /* Quita las viñetas de las listas */
+}
+
+h1 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900; /* negrita*/
+  font-size: 48px;
+}
+
+h2 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900; /* negrita*/
+  font-size: 36px;
+}
+
+h3 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900; /* negrita*/
+  font-size: 28px;
+}
+
+h4 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900; /* negrita*/
+  font-size: 24px;
+}
+
+h5 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900; /* negrita*/
+  font-size: 20px;
+}
+
+h6 {
+  font-family: var(--fuente-titulo);
+  font-weight: 900; /* negrita*/
+  font-size: 16px;
+}
+
+img {
+  filter: drop-shadow(
+    0 0 20px rgba(212, 209, 211, 0.45)
+  ); /*para que la sombra este en la silueta de la imagen*/
+}
+
+/* ── Párrafo de descripción ── */
+.texto {
+  font-size: 16px; /* Mínimo que puse en el taller */
+  color: var(--texto-suave);
+  max-width: 560px; /* Largo cómodo para leer, para que no ocupe todo el ancho sino una parte */
+  margin-bottom: 40px;
+}
+
+/* Mi nombre en negrita dentro del párrafo */
+.texto strong {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+/* ── H1 principal ── */
+.H_titulo {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER  ========================================================*/
+.header {
+  position: fixed; /* Siempre visible al hacer scroll */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10; /* Encima de todo el contenido */
+  border-bottom: 1px solid #4c3c5c;
+}
+
+/* Flexbox: logo a la izquierda, nav en el centro, botón a la derecha */
+.header_inner {
+  max-width: 1200px;
+  margin-inline: auto; /* Centra el contenedor */
+  padding-inline: 40px; /* Márgenes laterales */
+  height: 70px; /* Altura fija del header */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--margen-componente);
+}
+
+/* Tamaño del logo */
+.header_inner img {
+  height: 150px;
+  width: auto;
+  margin-top: 15px;
+  margin-left: -80px;
+  filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.45));
+}
+
+/* Lista del nav: Flexbox horizontal */
+.nav_list {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Cada enlace del nav */
+.nav_item {
+  font-family: var(--fuente-cuerpo);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--texto-suave);
+  padding: 8px 14px;
+  border-radius: var(--radius-btn);
+  background: #000000;
+}
+
+.nav_item:hover {
+  color: var(--texto);
+  background: rgba(219, 84, 163, 0.5);
+  transition: var(--transicion);
+}
+
+/* Botón "Contacto" del header */
+.btn-contacto_header {
+  font-family: var(--fuente-cuerpo);
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--rosado);
+  padding: 9px 22px;
+  border-radius: var(--radius-btn);
+}
+
+.btn-contacto_header:hover {
+  background: var(--rosado-hover);
+  border-color: var(--rosado-hover);
+  box-shadow: 0 0 28px rgba(235, 143, 174, 0.5);
+  transform: translateY(-2px);
+}
+
+/* INICIO ========================================================*/
+.inicio {
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Padding superior: deja espacio para el header fij */
+  padding-top: 140px;
+  padding-bottom: 60px;
+}
+
+.sobremi {
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+
+  /* Padding superior: deja espacio para el header fij */
+  padding-top: 140px;
+  padding-bottom: 60px;
+}
+
+/* Contenedor centrado con ancho máximo */
+.inicio_inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 40px;
+  width: 100%;
+}
+
+.sobremi_inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 40px;
+  width: 100%;
+}
+
+.content_inicio {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: space-between;
+}
+
+/* ── Etiqueta pequeña sobre el título ── */
+.inicio_tag {
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--rosado-hover);
+  margin-bottom: 22px;
+}
+
+/* Primera línea: blanco */
+.H_blanco {
+  color: var(--texto);
+}
+
+.H_morado {
+  color: var(--rosado);
+  text-shadow:
+    0 0 40px rgba(246, 92, 195, 0.55),
+    0 0 90px rgba(246, 92, 177, 0.2);
+}
+
+.inicio_texto {
+  flex: 1;
+}
+
+.mi_imagen img {
+  width: 520px;
+  height: auto;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ─────────────────────────────────────────────
+  BOTONES
+  Flexbox horizontal con gap de 24px.
+───────────────────────────────────────────────*/
+
+/* Contenedor de los dos botones */
+.btn_accion {
+  display: flex;
+  align-items: center;
+  gap: var(--margen-componente); /* 24px del taller */
+  flex-wrap: wrap; /* En pantallas pequeñas bajan a otra fila */
+}
+
+/* Estilos base compartidos por ambos botones */
+.btn_ver_proyectos,
+.btn_contacto {
+  font-family: var(--fuente-cuerpo);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: var(--radius-btn);
+  border: 2px solid transparent;
+  cursor: pointer;
+}
+
+.btn_ver_proyectos:hover,
+.btn_contacto:hover {
+  transform: translateY(-3px); /* Sube un poco al pasar el mouse encima*/
+}
+
+.btn_ver_proyectos {
+  background: var(--rosado);
+  color: #ffffff;
+  border-color: var(--rosado);
+}
+
+.btn_ver_proyectos:hover {
+  background: var(--rosado-hover);
+  border-color: var(--rosado-hover);
+  box-shadow: 0 0 28px rgba(235, 143, 174, 0.5);
+}
+
+.btn_ver_proyectos:active {
+  background: var(--rosado-glow);
+}
+
+/* Botón secundario: solo borde, fondo transparente */
+.btn_contacto {
+  background: transparent;
+  color: var(--texto);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.btn_contacto:hover {
+  border-color: var(--rosado-hover);
+  color: var(--rosado-hover);
+  background: rgba(246, 92, 151, 0.07);
+}
+
+/* HABILIDADES ================================================== */
+
+.habilidades {
+  padding: 80px 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.habilidades_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.tarjeta {
+  background: var(--fondo-tarjeta);
+  padding: 28px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  transition: var(--transicion);
+  box-shadow: 0 10px 30px rgba(196, 115, 142, 0.5);
+  border: 1px solid rgba(114, 27, 71, 0.35);
+}
+
+.tarjeta h4 {
+  margin-bottom: 20px;
+}
+
+.tarjeta ul {
+  padding-left: 15px;
+  list-style: square;
+  color: #422338;
+}
+
+.tarjeta li {
+  margin-bottom: 15px;
+  color: var(--texto-suave);
+}
+
+.tarjeta li::marker {
+  /* para que el punto sea rosado */
+  color: var(--rosado);
+}
+
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.tags span {
+  background: #422338;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+
+/* PROYECTOS ================================================== */
+
+.proyectos {
+  max-width: 1200px;
+  margin: auto;
+  padding: 80px 40px;
+}
+
+.proyectos_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.proyecto_card {
+  background: var(--fondo-tarjeta);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: var(--transicion);
+}
+
+.proyecto_card:hover {
+  transform: translateY(-5px);
+  transition: var(--transicion);
+  box-shadow: 0 10px 30px rgba(196, 115, 142, 0.5);
+}
+
+.proyecto_card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.proyecto_info {
+  padding: 20px;
+}
+
+.proyecto_info h3 {
+  margin-bottom: 8px;
+}
+
+.proyecto_info p {
+  color: var(--texto-suave);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.repo_link {
+  font-size: 14px;
+  color: var(--rosado);
+  font-weight: 600;
+}
+
+.repo_link:hover {
+  color: var(--rosado-hover);
+}
+
+/* EXPERIENCIA ==========================================*/
+.trayectoria {
+  max-width: 900px;
+  margin: auto;
+  padding: 80px 40px;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 50px;
+  padding-left: 40px;
+}
+
+.timeline_item {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.timeline_dot {
+  position: absolute;
+  left: -32px;
+  top: 6px;
+
+  width: 10px;
+  height: 10px;
+
+  background: var(--rosado);
+  border-radius: 50%;
+
+  box-shadow: 0 0 12px var(--rosado);
+}
+
+.timeline_fecha {
+  font-size: 13px;
+  color: var(--rosado);
+  font-weight: 600;
+}
+
+.timeline_lugar {
+  color: var(--texto-suave);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.timeline_content p {
+  color: var(--texto-suave);
+}
+
+/* CONTACTO ============================================*/
+
+.contacto {
+  padding: 80px 0;
+}
+
+.contacto_inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+  max-width: 500px;
+}
+
+input, textarea{
+  padding:14px 16px;
+  border-radius:10px;
+  border:1px solid #2d2d30;
+  background:#1c1c1e;
+  color:white;
+  font-family:var(--fuente-cuerpo);
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.formulario button{
+  background:var(--rosado);
+  color:white;
+  border:none;
+  border-radius:10px;
+  padding:14px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.formulario button:hover{
+  background:var(--rosado-hover);
+  transform:translateY(-2px);
+}
