@@ -172,6 +172,12 @@ img {
   transition: var(--transicion);
 }
 
+.nav_item:active {
+  background: rgba(219, 84, 163, 0.8);
+  color: var(--texto);
+  transform: scale(0.97);
+}
+
 /* Botón "Contacto" del header */
 .btn-contacto_header {
   font-family: var(--fuente-cuerpo);
@@ -188,6 +194,12 @@ img {
   border-color: var(--rosado-hover);
   box-shadow: 0 0 28px rgba(235, 143, 174, 0.5);
   transform: translateY(-2px);
+}
+
+.btn-contacto_header:active {
+  background: var(--rosado-glow);
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 /* INICIO ========================================================*/
@@ -329,10 +341,16 @@ img {
   background: rgba(246, 92, 151, 0.07);
 }
 
+.btn_contacto:active {
+  border-color: var(--rosado-glow);
+  color: var(--rosado-glow);
+  background: rgba(246, 92, 151, 0.15);
+}
+
 /* HABILIDADES ================================================== */
 
 .habilidades {
-  padding: 80px 40px;
+  padding: var(--espacio-seccion) 40px; /* 80px del taller */
   max-width: 1200px;
   margin: auto;
 }
@@ -340,13 +358,13 @@ img {
 .habilidades_grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: var(--gap-columnas); /* 32px del taller */
   margin-top: 40px;
 }
 
 .tarjeta {
   background: var(--fondo-tarjeta);
-  padding: 28px;
+  padding: var(--padding-tarjeta); /* 24px del taller */
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -396,13 +414,13 @@ img {
 .proyectos {
   max-width: 1200px;
   margin: auto;
-  padding: 80px 40px;
+  padding: var(--espacio-seccion) 40px; /* 80px del taller */
 }
 
 .proyectos_grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
+  gap: var(--gap-columnas); /* 32px del taller */
   margin-top: 50px;
 }
 
@@ -454,7 +472,7 @@ img {
 .trayectoria {
   max-width: 900px;
   margin: auto;
-  padding: 80px 40px;
+  padding: var(--espacio-seccion) 40px; /* 80px del taller */
 }
 
 .timeline {
@@ -501,7 +519,7 @@ img {
 /* CONTACTO ============================================*/
 
 .contacto {
-  padding: 80px 0;
+  padding: var(--espacio-seccion) 0; /* 80px del taller */
 }
 
 .contacto_inner {
@@ -536,13 +554,37 @@ textarea{
   background:var(--rosado);
   color:white;
   border:none;
-  border-radius:10px;
+  border-radius: var(--radius-btn); /* 10px del taller */
   padding:14px;
   font-weight:600;
   cursor:pointer;
+  transition: var(--transicion);
 }
 
 .formulario button:hover{
   background:var(--rosado-hover);
   transform:translateY(-2px);
+}
+
+.formulario button:active {
+  background: var(--rosado-glow);
+  transform: translateY(0);
+}
+
+/* Estado deshabilitado: formulario button */
+.formulario button:disabled {
+  background: var(--fondo-secundario);
+  color: var(--texto-suave);
+  cursor: not-allowed;
+  transform: none;
+  opacity: 0.6;
+}
+
+/* Inputs y textarea deshabilitados */
+input:disabled,
+textarea:disabled {
+  background: var(--fondo-secundario);
+  color: var(--texto-suave);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
